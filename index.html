@@ -1,1 +1,72 @@
 <!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tulsi Kumar | Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold">Tulsi Kumar</div>
+      <ul class="flex space-x-6">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+          <li><a href="cv.html" class="nav-link">Computer Vision</a></li>
+          <li><a href="automation.html" class="nav-link">Automation</a></li>
+          <li><a href="genai.html" class="nav-link">Gen AI</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="text-center py-20 bg-gradient-to-r from-blue-400 to-indigo-600 text-white">
+    <h1 class="text-5xl font-bold mb-4">Hi, I'm Tulsi Kumar</h1>
+    <p class="text-xl mb-6">AI & Robotics Engineer | Automation | Computer Vision | Generative AI</p>
+    <a href="contact.html" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100">Book a Meeting</a>
+</section>
+
+<!-- Projects Carousel -->
+<section class="py-20 container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center">My Projects</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="assets/images/robotic1.png" alt="Robotics Project 1">
+                <h3 class="text-xl font-bold mt-2">Robotics Arm</h3>
+                <p>Controlled using ROS & Python</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="assets/images/cv1.png" alt="CV Project 1">
+                <h3 class="text-xl font-bold mt-2">Object Detection</h3>
+                <p>YOLOv8 Implementation</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="assets/images/automation1.png" alt="Automation Project 1">
+                <h3 class="text-xl font-bold mt-2">Factory Automation</h3>
+                <p>PLC & Python Integration</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="assets/images/genai1.png" alt="Gen AI Project 1">
+                <h3 class="text-xl font-bold mt-2">Generative AI</h3>
+                <p>Text & Image Generation Models</p>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="assets/js/swiper.js"></script>
+</body>
+</html>
