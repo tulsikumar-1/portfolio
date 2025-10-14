@@ -1,72 +1,138 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tulsi Kumar | Portfolio</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* Basic reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body { background: #f5f5f5; color: #333; line-height: 1.6; }
+
+/* Animated gradient background */
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Header and nav */
+header { 
+    background: linear-gradient(90deg, #000000, #1ecbe2, #4f46e5, #8b5cf6); 
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff; 
+    padding: 20px 0; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+nav { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+nav a { color: #fff; text-decoration: none; font-weight: bold; transition: all 0.3s; padding: 8px 12px; border-radius: 6px; }
+nav a:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+
+/* Hero */
+.hero { 
+    text-align: center; 
+    padding: 120px 20px; 
+    background: linear-gradient(135deg, #6a11cb, #2575fc); 
+    color: #fff; 
+    border-radius: 0 0 50% 50% / 20%;
+    position: relative;
+    overflow: hidden;
+}
+.hero h1 { font-size: 3.5em; margin-bottom: 20px; animation: fadeIn 2s ease-in-out; }
+.hero p { font-size: 1.3em; margin-bottom: 30px; animation: fadeIn 2s 0.5s ease-in-out; }
+.hero a { 
+    display: inline-block;
+    padding: 14px 28px;
+    font-weight: bold;
+    background: #fff;
+    color: #4f46e5;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.hero a:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(0,0,0,0.3); }
+
+/* Projects grid */
+.projects { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    gap: 25px; 
+    max-width: 1100px; 
+    margin: 60px auto; 
+    padding: 0 20px;
+}
+.project { 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    text-align: center; 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project:hover { transform: translateY(-10px); box-shadow: 0 20px 35px rgba(0,0,0,0.15); }
+.project img { max-width: 100%; border-radius: 12px; margin-bottom: 15px; }
+
+/* Footer */
+footer { text-align: center; padding: 50px 20px; background: #111; color: #fff; margin-top: 50px; }
+
+/* Animations */
+@keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+
+/* Responsive typography */
+@media(max-width:768px){ .hero h1 { font-size: 2.5em; } .hero p { font-size: 1.1em; } }
+@media(max-width:480px){ nav { gap: 15px; } }
+</style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="bg-white shadow-md p-4 sticky top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center">
-      <div class="text-xl font-bold">Tulsi Kumar</div>
-      <ul class="flex space-x-6">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="robotics.html" class="nav-link">Robotics</a></li>
-          <li><a href="cv.html" class="nav-link">Computer Vision</a></li>
-          <li><a href="automation.html" class="nav-link">Automation</a></li>
-          <li><a href="genai.html" class="nav-link">Gen AI</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-  </div>
-</nav>
+<header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="robotics.html">Robotics</a>
+        <a href="cv.html">CV</a>
+        <a href="automation.html">Automation</a>
+        <a href="genai.html">GenAI</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-<!-- Hero Section -->
-<section class="text-center py-20 bg-gradient-to-r from-blue-400 to-indigo-600 text-white">
-    <h1 class="text-5xl font-bold mb-4">Hi, I'm Tulsi Kumar</h1>
-    <p class="text-xl mb-6">AI & Robotics Engineer | Automation | Computer Vision | Generative AI</p>
-    <a href="contact.html" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-gray-100">Book a Meeting</a>
+<section class="hero">
+    <h1>Hello, I'm Tulsi Kumar</h1>
+    <p>AI & Automation Engineer | Robotics Enthusiast | Portfolio of Projects & Work</p>
+    <a href="contact.html">Book a Meeting</a>
 </section>
 
-<!-- Projects Carousel -->
-<section class="py-20 container mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center">My Projects</h2>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="assets/images/robotic1.png" alt="Robotics Project 1">
-                <h3 class="text-xl font-bold mt-2">Robotics Arm</h3>
-                <p>Controlled using ROS & Python</p>
-            </div>
-            <div class="swiper-slide">
-                <img src="assets/images/cv1.png" alt="CV Project 1">
-                <h3 class="text-xl font-bold mt-2">Object Detection</h3>
-                <p>YOLOv8 Implementation</p>
-            </div>
-            <div class="swiper-slide">
-                <img src="assets/images/automation1.png" alt="Automation Project 1">
-                <h3 class="text-xl font-bold mt-2">Factory Automation</h3>
-                <p>PLC & Python Integration</p>
-            </div>
-            <div class="swiper-slide">
-                <img src="assets/images/genai1.png" alt="Gen AI Project 1">
-                <h3 class="text-xl font-bold mt-2">Generative AI</h3>
-                <p>Text & Image Generation Models</p>
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+<section class="projects">
+    <div class="project">
+        <img src="assets/images/robotic1.png" alt="Robotics Project">
+        <h2>Robotics</h2>
+        <p>Robotics projects involving automation, simulation, and embedded systems.</p>
+    </div>
+    <div class="project">
+        <img src="assets/images/cv1.png" alt="CV Project">
+        <h2>Curriculum Vitae</h2>
+        <p>My experience, skills, and professional journey in AI and automation.</p>
+    </div>
+    <div class="project">
+        <img src="assets/images/automation1.png" alt="Automation Project">
+        <h2>Automation</h2>
+        <p>Automation pipelines, ETL, AI-driven systems, and industrial solutions.</p>
+    </div>
+    <div class="project">
+        <img src="assets/images/genai1.png" alt="GenAI Project">
+        <h2>Generative AI</h2>
+        <p>Projects on deep learning, generative models, and AI research experiments.</p>
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="assets/js/swiper.js"></script>
+<footer>
+    &copy; 2025 Tulsi Kumar | Designed with ❤️
+</footer>
+
 </body>
 </html>
