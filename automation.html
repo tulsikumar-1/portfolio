@@ -3,50 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automation | Tulsi Kumar</title>
+<title>Automation & Mechatronics | Tulsi Kumar</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <style>
-/* Reuse same styles as above */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-body { background: #f5f5f5; color:#333; line-height:1.6; }
-header { background: linear-gradient(90deg, #000000, #1ecbe2, #4f46e5, #8b5cf6); background-size:400% 400%; animation: gradientBG 15s ease infinite; color:#fff; padding:20px 0; position:sticky; top:0; z-index:1000; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
-nav { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-nav a { color:#fff; text-decoration:none; font-weight:bold; transition: all 0.3s; padding:8px 12px; border-radius:6px; }
-nav a:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
-.hero { text-align:center; padding:100px 20px; background: linear-gradient(135deg, #6a11cb, #2575fc); color:#fff; border-radius: 0 0 50% 50% / 20%; position:relative; overflow:hidden; }
-.hero h1 { font-size:3em; margin-bottom:20px; animation: fadeIn 2s ease-in-out; }
-.hero p { font-size:1.2em; margin-bottom:30px; animation: fadeIn 2s 0.5s ease-in-out; }
-section { padding:80px 20px; max-width:1000px; margin:auto; }
-footer { text-align:center; padding:50px 20px; background:#111; color:#fff; margin-top:50px; }
-@keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
-@keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+body { background:#1b1b1b; color:#d1d1d1; }
+header { background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); background-size:400% 400%; padding:20px 0; position: sticky; top:0; z-index:1000; animation: gradientBG 10s ease infinite; }
+nav { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+nav a { color:#a3c9c9; text-decoration:none; font-weight:bold; padding:8px 14px; border-radius:6px; transition:0.3s; }
+nav a:hover { background: rgba(163,201,201,0.2); transform: scale(1.1); }
+@keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.hero { text-align:center; padding:60px 5vw; background:linear-gradient(180deg,#0f2027,#203a43); border-radius:0 0 50% 50% / 20%; }
+.hero h1 { font-size:2.5rem; margin-bottom:20px; color:#a3c9c9; }
+.hero p { font-size:1.2rem; margin-bottom:30px; color:#d1d1d1; }
+
+/* Projects section */
+.projects-section {
+  padding: 50px 5vw;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #a3c9c9;
+}
+
+/* Horizontal project cards */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  align-items: stretch; /* ensures both image and text are same height */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-image img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  display: block;          /* removes extra bottom space */
+}
+
+.project-image {
+  flex-shrink: 0;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.project-description {
+  padding: 25px 30px;
+  text-align: justify;
+  text-justify: inter-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center text if image taller */
+}
+
+.project-description h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #00d4ff;
+}
+
+.project-description p {
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  word-spacing: 1.2px;
+  hyphens: auto;
+}
+
+.project-description a {
+  display: inline-block;
+  color: #1ecbe2;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 5px 0;
+}
+
+.project-description a:hover {
+  text-decoration: underline;
+}
+footer { text-align:center; padding:20px; background:#0f2027; color:#a3c9c9; font-size:0.9rem; margin-top:50px; }
+
+@media (max-width:768px){
+  .project-card { flex-direction: column; }
+  .project-image img { width:100%; height:auto; }
+  .hero { padding:40px 5vw; }
+}
 </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="robotics.html">Robotics</a>
-        <a href="cv.html">CV</a>
-        <a href="automation.html">Automation</a>
-        <a href="genai.html">GenAI</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="robotics.html">AI and Robotics</a>
+      <a href="automation.html">Automation</a>
+      <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-    <h1>Automation Projects</h1>
-    <p>ETL pipelines, Industrial Automation, AI-driven workflows, and Robotics integration.</p>
+  <h1>Automation & Mechatronics Projects</h1>
+  <p>Explore my PLC, mechatronics, and industrial automation projects </p>
 </section>
 
-<section>
-    <h2>Featured Automation</h2>
-    <p>Factory Automation Systems | Python & PLC Integration | Data Processing Pipelines</p>
+<section class="projects-section">
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card" id="project1">
+    <div class="project-image">
+        <img src="assets/images/plc1.png" alt="PLC Conveyor Belt Control">
+    </div>
+    <div class="project-description">
+        <h3>PLC Conveyor Belt Control</h3>
+        <p>Designed and implemented a PLC-controlled conveyor belt system for sorting objects based on color and size. Developed ladder logic using timers, counters, and sensors to ensure precise automation. The system efficiently detects incoming objects, sorts them into designated paths, and maintains smooth workflow, demonstrating practical industrial automation concepts and real-time control.</p>
+    </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" id="project2">
+    <div class="project-image">
+        <img src="assets/images/plc2.png" alt="Automated Pick-and-Place">
+    </div>
+    <div class="project-description">
+        <h3>Automated Pick-and-Place</h3>
+        <p>Developed a 4-axis robotic arm controlled by PLC for automated pick-and-place operations. Integrated position and proximity sensors to detect objects and avoid collisions. Designed ladder logic to coordinate arm movements, timing, and gripping mechanisms, providing a robust solution for high-precision material handling in industrial automation scenarios.</p>
+    </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" id="project3">
+    <div class="project-image">
+        <img src="assets/images/plc3.png" alt="Smart Packaging Line">
+    </div>
+    <div class="project-description">
+        <h3>Smart Packaging Line</h3>
+        <p>Implemented a fully automated packaging line using PLCs and multiple sensors for quality and process control. Designed an HMI interface for real-time monitoring, start/stop control, and workflow adjustments. The system handles product detection, alignment, and packaging, demonstrating integration of automation, safety protocols, and industrial process efficiency.</p>
+    </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card" id="project5">
+    <div class="project-image">
+        <img src="assets/images/plc5.png" alt="Mechatronic Door Control">
+    </div>
+    <div class="project-description">
+        <h3>Mechatronic Door Control</h3>
+        <p>Designed an automated door control system using PLC and servo motors for industrial applications. Integrated safety sensors and timed operations to prevent accidents and ensure smooth functioning. The project involved ladder logic programming to control opening/closing sequences, emergency stop mechanisms, and remote monitoring, combining mechanical and electrical automation concepts.</p>
+    </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card" id="project6">
+    <div class="project-image">
+        <img src="assets/images/plc6.png" alt="Temperature Control System">
+    </div>
+    <div class="project-description">
+        <h3>Temperature Control System</h3>
+        <p>Implemented a PID-controlled heating system using PLC to maintain precise temperature levels. Integrated temperature sensors for real-time feedback and an HMI for monitoring setpoints and current readings. Designed ladder logic for dynamic adjustment, safety cut-offs, and alarm triggers, demonstrating practical applications of control theory and automation in industrial heating processes.</p>
+    </div>
+    </div>
+
+
+        <!-- Project 7 -->
+    <div class="project-card" id="project7">
+    <div class="project-image">
+        <img src="assets/images/plc7.png" alt="Line Following Robot">
+    </div>
+    <div class="project-description">
+        <h3>Line Following Robot</h3>
+        <p>Designed and built an Arduino-based autonomous line following robot. It uses IR sensors to detect and follow a predefined path with high accuracy. Implemented proportional speed control to navigate curves smoothly and avoid deviations. The project demonstrates fundamental robotics concepts including sensor integration, motor control, and real-time decision-making.</p>
+    </div>
+    </div>
+
+    <!-- Project 8 -->
+    <div class="project-card" id="project8">
+    <div class="project-image">
+        <img src="assets/images/plc8.png" alt="Couple Tank Water Equilibrium">
+    </div>
+    <div class="project-description">
+        <h3>Couple Tank Water Equilibrium</h3>
+        <p>Implemented an Arduino-controlled couple tank system to maintain water level equilibrium between two tanks. Equipped with water level sensors and a PID controller to regulate the inflow and outflow accurately. The system ensures stable levels even under varying input disturbances, demonstrating real-time control and process automation skills. Ideal for illustrating fundamentals of control engineering and fluid dynamics.</p>
+    </div>
+    </div>
+
+    <!-- Project 9 -->
+    <div class="project-card" id="project9">
+    <div class="project-image">
+        <img src="assets/images/plc9.png" alt="RC Car using Bluetooth">
+    </div>
+    <div class="project-description">
+        <h3>RC Car using Bluetooth</h3>
+        <p>Developed a Bluetooth-controlled RC car using Arduino and a motor driver shield. The car can be controlled remotely through a smartphone app for forward, backward, left, and right motion. Integrated obstacle detection using ultrasonic sensors to prevent collisions. This project showcases embedded system programming, wireless communication, and real-time sensor feedback implementation.</p>
+    </div>
+    </div>
+
+    <!-- Project 10 -->
+    <div class="project-card" id="project10">
+    <div class="project-image">
+        <img src="assets/images/plc10.png" alt="Smart Suitcase">
+    </div>
+    <div class="project-description">
+        <h3>Smart Suitcase</h3>
+        <p>Developed an Arduino-based smart suitcase that autonomously follows the passenger using sensors and motor control. Integrated ultrasonic and IR sensors to detect and maintain a safe distance from the user. The suitcase navigates obstacles, turns, and stops automatically, showcasing real-time tracking, autonomous navigation, and embedded system programming. Ideal for demonstrating practical applications of robotics in daily life.</p>
+    </div>
+    </div>
+
+
+  </div>
 </section>
 
-<footer>
-    &copy; 2025 Tulsi Kumar | Designed with ❤️
+<footer style="text-align: center; padding: 50px 20px; background: #0f2027; color: #a3c9c9;">
+  <p>&copy; 2025 Tulsi Kumar</p>
+  <div style="margin-top: 20px;">
+    <div style="display: flex; justify-content: center; gap: 30px;">
+      <a href="https://www.linkedin.com/in/tulsi-kumar" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn
+      </a>
+      <a href="mailto:tulsi.kumar@example.com" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fas fa-envelope" style="margin-right: 8px;"></i>Gmail
+      </a>
+      <a href="https://github.com/tulsikumar-1" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-github" style="margin-right: 8px;"></i>GitHub
+      </a>
+    </div>
+  </div>
 </footer>
 
 </body>

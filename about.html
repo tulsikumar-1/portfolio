@@ -4,49 +4,295 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Tulsi Kumar</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <style>
-/* Reuse the same styles as index.html */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-body { background: #f5f5f5; color:#333; line-height:1.6; }
-header { background: linear-gradient(90deg, #000000, #1ecbe2, #4f46e5, #8b5cf6); background-size:400% 400%; animation: gradientBG 15s ease infinite; color:#fff; padding:20px 0; position:sticky; top:0; z-index:1000; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
-nav { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-nav a { color:#fff; text-decoration:none; font-weight:bold; transition: all 0.3s; padding:8px 12px; border-radius:6px; }
-nav a:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
-.hero { text-align:center; padding:100px 20px; background: linear-gradient(135deg, #6a11cb, #2575fc); color:#fff; border-radius: 0 0 50% 50% / 20%; position:relative; overflow:hidden; }
-.hero h1 { font-size:3em; margin-bottom:20px; animation: fadeIn 2s ease-in-out; }
-.hero p { font-size:1.2em; margin-bottom:30px; animation: fadeIn 2s 0.5s ease-in-out; }
-section { padding:80px 20px; max-width:1000px; margin:auto; }
-footer { text-align:center; padding:50px 20px; background:#111; color:#fff; margin-top:50px; }
-@keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
-@keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+/* Global reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+body { background: #1b1b1b; color: #d1d1d1; line-height: 1.6; overflow-x: hidden; }
+
+/* Animated gradient header */
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+header { 
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: #a3c9c9; 
+  padding: 20px 0; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}
+
+nav { display: flex; justify-content: center; gap: clamp(10px, 3vw, 40px); flex-wrap: wrap; }
+nav a { color: #a3c9c9; text-decoration: none; font-weight: bold; transition: all 0.3s; padding: 8px 14px; border-radius: 6px; font-size: clamp(0.9rem, 1.5vw, 1rem); }
+nav a:hover { background: rgba(163,201,201,0.2); transform: scale(1.1); }
+
+/* About section with image */
+.about-section {
+  padding: clamp(60px, 10vh, 120px) 5vw;
+  background: linear-gradient(180deg, #0f2027, #203a43);
+  color: #a3c9c9;
+  border-radius: 0 0 50% 50% / 20%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.about-text {
+  flex: 1 1 500px;
+  text-align: justify;
+}
+
+.about-text h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #d1d1d1;
+  line-height: 1.6;
+}
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.timeline::before {
+  content: none; 
+}
+
+.timeline h2 {
+  font-size: clamp(2rem, 4vw, 3rem); /* Adjust as needed */
+  color: #a3c9c9;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Timeline items */
+.timeline-item {
+  position: relative;
+  padding-left: 70px;
+  margin-bottom: 50px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: #1b1b1b;
+  border: 3px solid #a3c9c9;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(163, 201, 201, 0.5);
+}
+
+.timeline-item h3 {
+  color: #a3c9c9;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.timeline-item h4 {
+  color: #7fbcbc;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.timeline-item p {
+  color: #d1d1d1;
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+/* Footer */
+footer { 
+  text-align: center; 
+  padding: 20px; 
+  background: #0f2027; 
+  color: #a3c9c9; 
+  margin-top: 50px; 
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn { 
+  from {opacity:0; transform: translateY(20px);} 
+  to {opacity:1; transform: translateY(0);} 
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px){
+  .timeline::before { left: 15px; }
+  .timeline-item { padding-left: 55px; }
+  .timeline-item::before { left: 7px; }
+  .about-content { flex-direction: column; gap: 30px; }
+  .about-text { text-align: justify; }
+  .about-section { border-radius: 0 0 30% 30% / 15%; }
+}
+
+@media(max-width: 480px){
+  .about-image img { max-width: 250px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="robotics.html">Robotics</a>
-        <a href="cv.html">CV</a>
-        <a href="automation.html">Automation</a>
-        <a href="genai.html">GenAI</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="robotics.html">AI and Robotics</a>
+      <a href="automation.html">Automation</a>
+      <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<section class="hero">
-    <h1>About Me</h1>
-    <p>I am Tulsi Kumar, an AI & Automation Engineer with a passion for Robotics, Computer Vision, and Generative AI. I work on innovative projects combining AI, automation, and embedded systems.</p>
+<section class="about-section">
+  <div class="about-content">
+    <div class="about-image">
+      <img src="assets/images/profile.png" alt="Tulsi Kumar">
+    </div>
+    <div class="about-text">
+      <h1>About Me</h1>
+      <p>
+        I am Tulsi Kumar, a Mechatronics and Automation Engineer with a Master's degree in AI and Robotics. 
+        I specialize in designing and implementing intelligent robotic systems, industrial automation, 
+        and computer vision pipelines for real-time perception and control. My work focuses on 
+        integrating sensors, actuators, and AI algorithms to build smart machines and automated processes. 
+        I am passionate about leveraging AI and robotics to optimize industrial operations and explore cutting-edge 
+        research in autonomous systems.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>My Journey</h2>
-    <p>I started my career in AI and Robotics, building projects in automation, computer vision, and generative AI. I have hands-on experience with Python, ROS, machine learning frameworks, and industrial automation pipelines.</p>
+<section class="timeline">
+  <h2 style="text-align:center; color:#a3c9c9; margin-bottom:40px;">Professional Experience</h2>
+
+  <div class="timeline-item">
+    <h3>AI Engineer – Pi School</h3>
+    <h4>Rome, Italy | June 2025 – Sept 2025</h4>
+    <p>
+      Developed Retrieval-Augmented Generation (RAG) systems for the European Space Agency's Earth Virtual Expert project, 
+      optimizing document retrieval and information analysis for environmental and space research. 
+      Built a graph-based RAG in Neo4j connecting knowledge via keywords, and implemented hallucination detection 
+      and mitigation pipelines to ensure reliable AI-driven insights for earth observation applications.
+    </p>
+  </div>
+
+
+  <div class="timeline-item">
+    <h3>Freelance AI & Automation Engineer – STROM Customised Solutions</h3>
+    <h4>Remote | Nov 2021 – Dec 2024</h4>
+    <p>
+      Developed and deployed computer vision pipelines for real-time object detection, tracking, and anomaly detection 
+      in industrial automation systems. Designed AI-driven robotic workflows and containerized applications using Docker 
+      and Flask, integrating sensors and cameras for automated industrial inspection and sorting.
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>Lab Engineer – SZABIST</h3>
+    <h4>Karachi, Pakistan | Mar 2021 – Sep 2021</h4>
+    <p>
+      Managed robotics and automation labs with Arduino, Raspberry Pi, STM32, and ROS platforms. Supervised and assisted 
+      students on vision-based robotics projects, control systems, and embedded automation applications using MATLAB 
+      and real-time sensor integration.
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>Automation Engineer – Codelabs Pvt. Ltd.</h3>
+    <h4>Karachi, Pakistan | Sep 2020 – Oct 2020</h4>
+    <p>
+      Developed embedded systems and IoT automation solutions for robotics and medical devices, including a ventilator. 
+      Integrated ESP8266 and Raspberry Pi for real-time sensor monitoring, actuator control, and automated workflows, 
+      ensuring reliable and safe operation of medical and robotic systems.
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>Automation Intern – Indus Motors Company (Toyota Pakistan)</h3>
+    <h4>Karachi, Pakistan | Jun 2019 – Aug 2019</h4>
+    <p>
+      Assisted in designing automated vehicle production tracks and layouts for the manufacturing plant. 
+      Contributed to the design and planning of a chemical storage facility, integrating safety protocols 
+      and automation considerations for efficient industrial operations.
+    </p>
+  </div>
+
+
+  <h2 style="text-align:center; color:#a3c9c9; margin:60px 0 40px 0;">Education</h2>
+
+  <div class="timeline-item">
+    <h3>Master’s in Artificial Intelligence & Robotics</h3>
+    <h4>Sapienza University of Rome, Italy | Nov 2021 – Oct 2024</h4>
+    <p>
+    Specialized in computer vision, motion planning, SLAM, and control systems. Implemented real-time perception and robotic control projects.
+    </p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>Bachelor of Engineering in Mechatronics (Silver Medalist)</h3>
+    <h4>SZABIST, Karachi, Pakistan | Sep 2016 – Aug 2020</h4>
+    <p>
+      Worked on robotics systems, embedded electronics, and automation projects, building prototypes that integrated sensors, actuators, and control algorithms.
+    </p>
+
+  </div>
 </section>
 
-<footer>
-    &copy; 2025 Tulsi Kumar | Designed with ❤️
+<footer style="text-align: center; padding: 50px 20px; background: #0f2027; color: #a3c9c9;">
+  <p>&copy; 2025 Tulsi Kumar</p>
+  <div style="margin-top: 20px;">
+    <div style="display: flex; justify-content: center; gap: 30px;">
+      <a href="https://www.linkedin.com/in/tulsi-kumar" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn
+      </a>
+      <a href="mailto:tulsi.kumar@example.com" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fas fa-envelope" style="margin-right: 8px;"></i>Gmail
+      </a>
+      <a href="https://github.com/tulsikumar-1" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-github" style="margin-right: 8px;"></i>GitHub
+      </a>
+    </div>
+  </div>
 </footer>
 
 </body>

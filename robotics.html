@@ -1,53 +1,310 @@
-<!-- robotics.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robotics | Tulsi Kumar</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <style>
-/* Same styling as about.html */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-body { background: #f5f5f5; color:#333; line-height:1.6; }
-header { background: linear-gradient(90deg, #000000, #1ecbe2, #4f46e5, #8b5cf6); background-size:400% 400%; animation: gradientBG 15s ease infinite; color:#fff; padding:20px 0; position:sticky; top:0; z-index:1000; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
-nav { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; }
-nav a { color:#fff; text-decoration:none; font-weight:bold; transition: all 0.3s; padding:8px 12px; border-radius:6px; }
-nav a:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
-.hero { text-align:center; padding:100px 20px; background: linear-gradient(135deg, #6a11cb, #2575fc); color:#fff; border-radius: 0 0 50% 50% / 20%; position:relative; overflow:hidden; }
-.hero h1 { font-size:3em; margin-bottom:20px; animation: fadeIn 2s ease-in-out; }
-.hero p { font-size:1.2em; margin-bottom:30px; animation: fadeIn 2s 0.5s ease-in-out; }
-section { padding:80px 20px; max-width:1000px; margin:auto; }
-footer { text-align:center; padding:50px 20px; background:#111; color:#fff; margin-top:50px; }
-@keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
-@keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+body { background:#1b1b1b; color:#d1d1d1; }
+
+/* Header */
+header { background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); background-size:400% 400%; padding:20px 0; position: sticky; top:0; z-index:1000; animation: gradientBG 10s ease infinite; }
+nav { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+nav a { color:#a3c9c9; text-decoration:none; font-weight:bold; padding:8px 14px; border-radius:6px; transition:0.3s; }
+nav a:hover { background: rgba(163,201,201,0.2); transform: scale(1.1); }
+
+/* Gradient animation */
+@keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Hero */
+.hero { text-align:center; padding:60px 5vw; background:linear-gradient(180deg,#0f2027,#203a43); border-radius:0 0 50% 50% / 20%; }
+.hero h1 { font-size:2.5rem; margin-bottom:20px; color:#a3c9c9; }
+.hero p { font-size:1.2rem; margin-bottom:30px; color:#d1d1d1; }
+
+/* Projects section */
+.projects-section {
+  padding: 50px 5vw;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #a3c9c9;
+}
+
+/* Horizontal project cards */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  align-items: stretch; /* ensures both image and text are same height */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-image img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  display: block;          /* removes extra bottom space */
+}
+
+.project-image {
+  flex-shrink: 0;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.project-description {
+  padding: 25px 30px;
+  text-align: justify;
+  text-justify: inter-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center text if image taller */
+}
+
+.project-description h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #00d4ff;
+}
+
+.project-description p {
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  word-spacing: 1.2px;
+  hyphens: auto;
+}
+
+.project-description a {
+  display: inline-block;
+  color: #1ecbe2;
+  text-decoration: none;
+  /*font-weight: bold;*/
+  margin-top: 0px;
+}
+
+.project-description a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Footer */
+footer { text-align:center; padding:20px; background:#0f2027; color:#a3c9c9; font-size:0.9rem; margin-top:50px; }
+
+/* Responsive */
+@media (max-width:768px){
+  .project-card { flex-direction: column; }
+  .project-image img { width:100%; height:auto; }
+  .hero { padding:40px 5vw; }
+}
 </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="robotics.html">Robotics</a>
-        <a href="cv.html">CV</a>
-        <a href="automation.html">Automation</a>
-        <a href="genai.html">GenAI</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="robotics.html">AI and Robotics</a>
+      <a href="automation.html">Automation</a>
+      <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-    <h1>Robotics Projects</h1>
-    <p>Building autonomous systems, robotic arms, and embedded automation solutions.</p>
+  <h1>Robotics & Computer Vision Projects</h1>
+  <p>Explore my robotics and computer vision projects </p>
+</section>
+<section class="projects-section">
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card" id="project1">
+      <div class="project-image">
+        <img src="assets/images/robotic1.png" alt="Light Weight Object Detection">
+      </div>
+      <div class="project-description">
+        <h3>Light Weight Object Detection</h3>
+        <p>Developed lightweight DETR models integrated with Vision Transformer backbones for real-time object detection in traffic scenes. Focused on identifying small, overlapping, and occluded objects with enhanced accuracy. Applied pruning, quantization, and knowledge distillation to balance computational efficiency and accuracy, achieving robust inference on edge devices like Jetson Nano and Raspberry Pi.</p>
+        <a href="https://github.com/tulsikumar-1/lw-detr" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" id="project2">
+      <div class="project-image">
+        <img src="assets/images/robotic2.png" alt="Multi Robot Simulator">
+      </div>
+      <div class="project-description">
+        <h3>Multi Robot Simulator</h3>
+        <p>Designed and built a 2D multi-robot simulator supporting differential drive and unicycle kinematics with LiDAR-based environment perception. Enabled interactive control of robots, real-time map visualization, and trajectory tracking. Integrated custom modules for obstacle avoidance, SLAM compatibility, and cooperative task assignment, serving as a testbed for swarm coordination and distributed control algorithms.</p>
+        <a href="https://github.com/tulsikumar-1/Multi_robot_simulator-ROS" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" id="project3">
+      <div class="project-image">
+        <img src="assets/images/robotic3.png" alt="Pepper Tic-Tac-Toe">
+      </div>
+      <div class="project-description">
+        <h3>Tic-Tac-Toe with Pepper</h3>
+        <p>Implemented an interactive Tic-Tac-Toe game on the Pepper humanoid robot using Python and NAOqi SDK. Developed an adaptive strategy system that adjusts difficulty based on user performance. Integrated speech recognition, natural dialogue, and facial emotion detection to make the robot more engaging and responsive, providing a human-like game experience through social robotics principles.</p>
+        <a href="https://github.com/tulsikumar-1/Tic-Tac-Toe-with-Pepper" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+    <!-- Project 4 -->
+    <div class="project-card" id="project5">
+      <div class="project-image">
+        <img src="assets/images/robotic5.png" alt="Smart Painting Machine">
+      </div>
+      <div class="project-description">
+        <h3>Smart Painting Machine</h3>
+        <p>
+          Developed an industrial automation system combining PLC-based conveyor control with a Raspberry Pi for computer vision integration. 
+          The system identifies objects moving on the conveyor using a camera and processes images for color and shape detection. 
+          The detected features are then used to control an XYZ robotic arm for precision painting, sorting, and surface coating. 
+          Implemented task scheduling, trajectory optimization, and safety interlocks to ensure reliable operation. 
+          The hybrid PLC–Raspberry Pi setup enables real-time communication between vision and control layers, allowing adaptive path planning and robust automation for industrial use cases.
+        </p>
+        <a href="https://3ciencias.com/articulos/articulo/development-smart-painting-machine-using-image-processing/" target="_blank">View Paper Publication</a>
+      </div>
+    </div>
+    
+    <!-- Project 5 -->
+    <div class="project-card" id="project4">
+      <div class="project-image">
+        <img src="assets/images/robotic4.png" alt="5 DOF Robotic Arm">
+      </div>
+      <div class="project-description">
+        <h3>5 DOF Robotic Arm</h3>
+        <p>Developed and programmed a 5 DOF robotic arm capable of executing pick-and-place operations with high precision. Used smart servo motors with feedback control for accurate joint movement and trajectory planning. Designed inverse kinematics solutions and implemented motion smoothing for delicate object manipulation, integrating manual and automated control modes for flexible operation.</p>
+      </div>
+    </div>
+
+
+    <!-- Project 6 -->
+    <div class="project-card" id="project6">
+      <div class="project-image">
+        <img src="assets/images/robotic6.png" alt="Super Image Resolution">
+      </div>
+      <div class="project-description">
+        <h3>Super Image Resolution</h3>
+        <p>Implemented a denoising autoencoder model using convolutional layers to upscale and restore low-resolution images. Combined perceptual and pixel-based loss functions to achieve sharper image reconstructions. Achieved up to 7 dB improvement in PSNR and significant SSIM gains, proving effective for preprocessing in vision pipelines like surveillance, medical imaging, and robotics perception.</p>
+        <a href="https://github.com/tulsikumar-1/Super-Image-Resolution" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+
+    <!-- Project 7 -->
+    <div class="project-card" id="project7">
+      <div class="project-image">
+        <img src="assets/images/robotic7.png" alt="App-Based Home Automation">
+      </div>
+      <div class="project-description">
+        <h3>App-Based Home Automation</h3>
+        <p>Developed a mobile-based home automation system using Arduino and Bluetooth communication. Designed a custom Android interface to control appliances such as lights, fans, and water pumps remotely. Implemented relay modules and safety circuits to ensure low-latency switching and user safety. The system demonstrates IoT integration and embedded system design for smart home environments.</p>
+      </div>
+    </div>
+
+    <!-- Project 8 -->
+    <div class="project-card" id="project8">
+      <div class="project-image">
+        <img src="assets/images/robotic8.png" alt="Smile Detection">
+      </div>
+      <div class="project-description">
+        <h3>Smile Detection</h3>
+        <p>Built a real-time facial expression recognition system for detecting smiles using Haar cascades and CNN-based feature extraction. The system was integrated with social robots to adapt behavior based on user emotions, enhancing human-robot interaction. The model achieved high accuracy on in-house datasets and can be extended for emotion-aware robotic control and user engagement analysis.</p>
+        <a href="https://github.com/tulsikumar-1/Smile-Detection" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+
+    <!-- Project 9 -->
+    <div class="project-card" id="project9">
+      <div class="project-image">
+        <img src="assets/images/robotic9.png" alt="Anomaly Detection CV">
+      </div>
+      <div class="project-description">
+        <h3>Anomaly Detection (CV)</h3>
+        <p>Designed a computer vision-based anomaly detection pipeline using deep learning and autoencoder architectures. The system detects unusual patterns or manufacturing defects in images and videos by analyzing feature deviations. Applied this method to industrial inspection and surveillance use cases, improving fault detection accuracy while reducing false positives through robust thresholding and latent space analysis.</p>
+      </div>
+    </div>
+
+    <!-- Project 10 -->
+    <div class="project-card" id="project10">
+      <div class="project-image">
+        <img src="assets/images/robotic10.png" alt="KYC Identity Verification">
+      </div>
+      <div class="project-description">
+        <h3>KYC / Identity Verification</h3>
+        <p>Created an automated KYC (Know Your Customer) verification pipeline using YOLO for document detection, Tesseract OCR for text extraction, and face recognition for identity matching. The system automatically processes ID cards and verifies user authenticity in real time. Designed for fintech and security applications, it streamlines manual verification with AI-powered efficiency and reliability.</p>
+      </div>
+    </div>
+
+    <!-- Project 11 -->
+    <div class="project-card" id="project11">
+      <div class="project-image">
+        <img src="assets/images/robotic11.png" alt="Face Recognition">
+      </div>
+      <div class="project-description">
+        <h3>Face Recognition</h3>
+        <p>Developed a robust facial recognition system for identity verification and access control using CNN-based embeddings and OpenCV. Implemented real-time detection and comparison with stored profiles, ensuring fast and accurate authentication. The project demonstrates strong understanding of feature encoding, similarity metrics, and security integration in AI-driven access systems.</p>
+      </div>
+    </div>
+
+    <!-- Project 12 -->
+    <div class="project-card" id="project12">
+      <div class="project-image">
+        <img src="assets/images/robotic12.png" alt="Automatic Attendance">
+      </div>
+      <div class="project-description">
+        <h3>Automatic Attendance</h3>
+        <p>Developed an intelligent facial recognition-based automatic attendance system for real-time tracking in educational and corporate settings. The system detects faces, identifies individuals from a pre-trained database, and logs attendance with timestamps. Designed with high accuracy under varied lighting and crowd conditions, it eliminates manual errors and improves workflow automation in classrooms and workplaces.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section>
-    <h2>Featured Projects</h2>
-    <p>Robotics Arm Control | ROS Simulation | Embedded Automation Systems</p>
-</section>
 
-<footer>
-    &copy; 2025 Tulsi Kumar | Designed with ❤️
+<footer style="text-align: center; padding: 50px 20px; background: #0f2027; color: #a3c9c9;">
+  <p>&copy; 2025 Tulsi Kumar</p>
+  <div style="margin-top: 20px;">
+    <div style="display: flex; justify-content: center; gap: 30px;">
+      <a href="https://www.linkedin.com/in/tulsi-kumar" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn
+      </a>
+      <a href="mailto:engr.tulsikumar@gmail.com" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fas fa-envelope" style="margin-right: 8px;"></i>Gmail
+      </a>
+      <a href="https://github.com/tulsikumar-1" target="_blank" style="color: #a3c9c9; text-decoration: none; font-size: 1.2rem;">
+        <i class="fab fa-github" style="margin-right: 8px;"></i>GitHub
+      </a>
+    </div>
+  </div>
 </footer>
 
 </body>
